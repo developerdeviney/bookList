@@ -1,12 +1,11 @@
 import React from 'react'
 import './App.css'
-import books from './books.json'
-import Book from './Components/Book'
+import { books } from './book.js'
+import { BookList } from './Components/BookList'
 
 function App () {
   return (
-    <div className='BookApp'>
-      <h2>Hi Mom</h2>
+    <div className='BookApp'> {books.map((book, key) => <BookList book={book} key={key} />)}
     </div>
   )
 }

@@ -1,27 +1,29 @@
-import React, {useState} from 'react'
-import books from './books.json'
+import React, { useState } from 'react'
+import './books.json'
 
-export const book = (props) => {
-    const [moreInfo, lessInfo] = useState(false)
+export default function BookList (props) {
+  const [moreInfo, lessInfo] = useState(false)
+  const { books } = props
   return (
     <div className='bookContainer'>
-      <div className='Summary'>
+      <div className='summary'>
         <div className='details'>
-          <img classname='coverPic'> {bookList.coverImageUrl} />
-          <h3 className='title'> {bookList.title} </h3>
-          <p className='author'> {bookList.author} </p>
-          <p className='shortdescription'> {bookList.shortDescription} </p>
+          <div className='coverPic'>
+            <img src={books.coverImageUrl} alt='Book Cover Image' /> 
+          </div>
+          <h3 className='title'> {books.title} </h3>
+          <p className='author'> {books.author} </p>
+          <p className='shortdescription'> {books.shortDescription} </p>
         </div>
         <button className='button' onClick={() => moreInfo(!lessInfo)}> Show {moreInfo ? 'Less' : 'More'}</button>
       </div>
       <div className='moreInfo'>
         <div className='moreInfoContent'>
-          <a href={bookList.url} >{bookList.url}</a>
-          <h4 className='publisher'> Publisher: {bookList.publisher} </h4>
-          <h5 className='publicationDate'> Publication Date: {bookList.publicationDate} </h5>
-          <p className='detailedDescription'> Detailed Description: {bookList.detailedDescription} </p>
+          <a href={books.url}>{books.url}</a>
+          <h4 className='publisher'> Publisher: {books.publisher} </h4>
+          <h5 className='publicationDate'> Publication Date: {books.publicationDate} </h5>
+          <p className='detailedDescription'> Detailed Description: {books.detailedDescription} </p>
         </div>
       </div>
-    </div>
-  )
+    )
 }
