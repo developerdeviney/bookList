@@ -1,7 +1,8 @@
 import React from 'react'
 import './App.css'
-import { books } from './book.js'
-import { BookList } from './Components/BookList'
+import books from './books.json'
+import BookList from './components/BookList'
+
 
 function App () {
   return (
